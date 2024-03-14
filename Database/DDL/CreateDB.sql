@@ -74,7 +74,7 @@ CREATE TABLE [CompanionSetting]
   (
      [CompanionSettingId] INT NOT NULL IDENTITY(1, 1) UNIQUE,
      [CompanionId]        INT NOT NULL,
-     [KhatExchangeTime]   DATETIME NOT NULL,
+     [KhatExchangeTime]   CHAR(8) NOT NULL,
      [UpdateOn]           DATETIME,
      [UpdatedBy]           INT,
      [CreatedOn]          DATETIME NOT NULL,

@@ -1,10 +1,11 @@
 import React from "react";
-import "./CreateAccount.css"
+import "./Signup.css"
 
-const CreateAccount = () => {
+export const Signup= () =>  {
     const phoneCodes = [
         '+92',
-        '+91'
+        '+91',
+        '+90'
     ]
 
     return (
@@ -29,4 +30,3 @@ const CreateAccount = () => {
     );
 
 }
-export default CreateAccount;

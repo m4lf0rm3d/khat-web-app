@@ -1,0 +1,53 @@
+.signup-page {
+    background-color: #ffffff;
+    border-radius: 20px;
+    height: 800px;
+    overflow: hidden;
+    position: relative;
+    width: 360px;
+  }
+  
+  .signup-page .android-top-nav-instance {
+    left: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+  }
+  
+  .signup-page .android-bottom-nav-instance {
+    left: 0 !important;
+    position: absolute !important;
+    top: 756px !important;
+  }
+  
+  .signup-page .sign-up-template-instance {
+    left: 0 !important;
+    position: absolute !important;
+    top: 32px !important;
+  }
+  
+  .signup-page .sign-up-template-2 {
+    background-color: #e1c9b0 !important;
+    display: flex !important;
+    left: 0 !important;
+    position: absolute !important;
+    top: 337px !important;
+    width: 312px !important;
+  }
+  
+  .signup-page .sign-up-template-3 {
+    color: #5b3a1d !important;
+    font-family: "Poppins-Medium", Helvetica !important;
+    font-size: 18px !important;
+    font-style: unset !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+    line-height: normal !important;
+    margin-bottom: -3.32px !important;
+    margin-left: -2px !important;
+    margin-right: -2px !important;
+    margin-top: -4.68px !important;
+  }
+  
+  .signup-page .sign-up-template-4 {
+    color: #5b3a1d !important;
+  }

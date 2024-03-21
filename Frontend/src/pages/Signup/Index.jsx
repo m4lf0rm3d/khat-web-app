@@ -12,16 +12,18 @@ export const Signup= () =>  {
         <>
         <div className="main">
             <div className="header">Create Account</div>
-            <p>Enter your email and phone number, and we'll send you a code to create your account.</p>
-            <div className="inputHeader">Phone Number</div>
-            <select name="phone-codes" id="phone-codes">
-                {phoneCodes.map(
-                    (phoneCode) => <option value={phoneCode}>{phoneCode}</option> 
-                )}
-            </select>
-            <input type="text" />
+            <div className="codePrompt"> Enter your email and phone number, and we'll send you a code to create your account.</div>
+            <div className="getPhoneNumber">
+                <div className="inputHeader">Phone Number</div>
+                <select name="phone-codes" id="phone-codes">
+                    {phoneCodes.map(
+                        (phoneCode) => <option value={phoneCode}>{phoneCode}</option> 
+                    )}
+                </select>
+                <input className="simpleInput" type="text" />
+            </div>
             <div className="inputHeader">Email</div>
-            <input type="text" />
+            <input className="simpleInput" type="text" />
             <div className="verifyBtn">
                 <button>Verify</button>
             </div>            

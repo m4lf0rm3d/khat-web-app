@@ -17,7 +17,7 @@ export const Signup= () =>  {
                 <div className="inputHeader">Phone Number</div>
                 <select name="phone-codes" id="phone-codes">
                     {phoneCodes.map(
-                        (phoneCode) => <option value={phoneCode}>{phoneCode}</option> 
+                        (phoneCode, index) => <option key={index} value={phoneCode}>{phoneCode}</option> 
                     )}
                 </select>
                 <input className="simpleInput" type="text" />

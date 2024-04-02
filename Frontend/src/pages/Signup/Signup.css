@@ -3,15 +3,18 @@
 .header {
     font-size: 25px;
     font-weight: bold;
+    
 }
 
 .codePrompt {
     font-weight:400px;
     font-size: 20px;
+    
 }
 
 .simpleInput {
     border-radius: 8px;
+    
     min-height: 40px;
 }
 
@@ -21,10 +24,51 @@
 }
 
 .main{
-    padding: 20px;
+    padding: 20px 30px;
     font-family: 'Poppins';
     display: flex;
+    flex: 1;
     min-height: 100vh;
-    gap: 10px;
     flex-direction: column;
+}
+
+.footer {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.upper {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+    gap: 20px;
+}
+
+.dropDown {
+    padding: 0 10px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.inputSection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+}
+
+.getPhoneNumber {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.verifyBtn {
+    margin-top: 20px;
+    align-self: center;
+    
 }

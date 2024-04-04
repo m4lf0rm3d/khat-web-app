@@ -10,6 +10,7 @@ export const Login= () =>
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [createBtnDisabled, setCreateButtonDisabled] = useState(true)
     const navigate = useNavigate();
 
     const onLoginButtonClick = () => {
@@ -30,6 +31,17 @@ export const Login= () =>
         }
     }
 
+    useEffect(() => {
+        if(email.length < 6 
+            || !email.includes("@")
+            || !email.includes(".com")            
+            || password.length < 6
+            ){
+            setCreateButtonDisabled(true);
+        }
+        else{ setCreateButtonDisabled(false) }
+    }, [email, password]);
+
     return(
         <div className="main">
             <ToastContainer />
@@ -49,14 +61,14 @@ export const Login= () =>
 
                 <div className="getPassword">
                     <div className="inputHeader">Password</div>
-                    <input className="simpleInput" type="text" placeholder="enter your password" onInput={(event) => {
+                    <input className="simpleInput" type="password" placeholder="enter your password" onInput={(event) => {
                         setPassword(event.target.value);
                     }}/>
                     <div className="warningText">Password must contain atleast 6 alphanumeric characters.</div>
                 </div>
 
                 <div className="buttonSpace" />
-                <LongButton text="Login" onBtnClick={onLoginButtonClick}/>
+                <LongButton text="Login" disabled={createBtnDisabled} onBtnClick={onLoginButtonClick}/>
 
             </div>
 

@@ -23,7 +23,7 @@
                 // Navigate to Home page
                 setTimeout(() => {                    
                     navigate("/home");
-                }, 2000); // Wait for 2 seconds
+                }, 500); // Wait for 2 seconds
             } else {
                 // Error popup
                 toast.error("Something went wrong.");                

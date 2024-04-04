@@ -3,33 +3,78 @@
 .header {
     font-size: 25px;
     font-weight: bold;
+    color: #5B3A1D;
+}
+
+.warningText {
+    font-size: 12px;
+    color: gray;
 }
 
 .codePrompt {
     font-weight:400px;
     font-size: 20px;
-}
-
-.subcodePrompt {
-    font-weight:200px;
-    font-size: 10px;
+    color: gray;
 }
 
 .simpleInput {
     border-radius: 8px;
+    font-size: 18px;
+    font-family: 'Poppins';
     min-height: 40px;
 }
 
 .inputHeader {
     font-size: 20px;
     font-weight: 500;
+    color: #595959;
 }
 
 .main{
-    padding: 20px;
+    margin-top: 20px;
+    padding: 20px 30px;
     font-family: 'Poppins';
     display: flex;
+    flex: 1;
     min-height: 100vh;
-    gap: 10px;
     flex-direction: column;
+}
+
+.footer {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.upper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+}
+
+.dropDown {
+    padding: 0 10px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.inputSection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+}
+
+
+.verifyBtn {
+    margin-top: 20px;
+    align-self: center;
+    
+}
+
+.buttonSpace {
+    margin-top: 30px;
 }

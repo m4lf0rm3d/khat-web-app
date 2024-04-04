@@ -3,27 +3,35 @@
 .header {
     font-size: 25px;
     font-weight: bold;
-    
+    color: #5B3A1D;
+}
+
+.warningText {
+    font-size: 12px;
+    color: gray;
 }
 
 .codePrompt {
     font-weight:400px;
     font-size: 20px;
-    
+    color: gray;
 }
 
 .simpleInput {
     border-radius: 8px;
-    
+    font-size: 18px;
+    font-family: 'Poppins';
     min-height: 40px;
 }
 
 .inputHeader {
     font-size: 20px;
     font-weight: 500;
+    color: #595959;
 }
 
 .main{
+    margin-top: 20px;
     padding: 20px 30px;
     font-family: 'Poppins';
     display: flex;
@@ -43,7 +51,7 @@
 .upper {
     display: flex;
     flex-direction: column;
-    flex: 5;
+    flex: 1;
     gap: 20px;
 }
 
@@ -71,4 +79,8 @@
     margin-top: 20px;
     align-self: center;
     
+}
+
+.buttonSpace {
+    margin-top: 30px;
 }

@@ -1,6 +1,6 @@
 # To Create Models using EF Package
 
-Scaffold-DbContext "Data Source=.;Initial Catalog=KhatTest;Trusted_Connection=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Scaffold-DbContext "Data Source=.;Initial Catalog=KhatTest;Trusted_Connection=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Project Core
 
 ================================================
 # To get connection string

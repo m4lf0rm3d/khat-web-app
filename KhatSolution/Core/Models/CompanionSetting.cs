@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace KhatWebServices.Models
+namespace Core.Models
 {
-    public partial class KhatContent
+    public partial class CompanionSetting
     {
-        public int KhatContentId { get; set; }
-        public int KhatId { get; set; }
-        public string KhatSectionText { get; set; } = null!;
+        public int CompanionSettingId { get; set; }
+        public int CompanionId { get; set; }
+        public string KhatExchangeTime { get; set; } = null!;
         public DateTime? UpdateOn { get; set; }
         public int? UpdatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public int CreatedBy { get; set; }
         public bool? IsActive { get; set; }
 
+        public virtual Companion Companion { get; set; } = null!;
         public virtual User CreatedByNavigation { get; set; } = null!;
-        public virtual Khat Khat { get; set; } = null!;
         public virtual User? UpdatedByNavigation { get; set; }
     }
 }

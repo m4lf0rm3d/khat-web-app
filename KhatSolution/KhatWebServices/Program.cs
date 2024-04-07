@@ -1,4 +1,7 @@
-using KhatWebServices.Models;
+
+
+using DAL.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +13,22 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add Database Context for Khat Database
-builder.Services.AddDbContext<KhatTestContext>();
+builder.Services.AddDbContext<KhatContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddSingleton(builder.Configuration);
+
+Console.WriteLine(builder.Configuration.GetConnectionString("DefaultConnection"));
+
+// Allow Cors
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
+
 
 var app = builder.Build();
 
@@ -21,9 +39,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors();
 
 app.MapControllers();
 

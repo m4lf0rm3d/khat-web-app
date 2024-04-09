@@ -9,8 +9,8 @@ INSERT INTO [User]
              [CreatedBy])
 VALUES      ('aa07729@st.habib.edu.pk',
              'ahsan123',
-             'Ahsan',
-             'Azeemi',
+             'Super',
+             'Admin',
              1,
              Getdate(),
              1),

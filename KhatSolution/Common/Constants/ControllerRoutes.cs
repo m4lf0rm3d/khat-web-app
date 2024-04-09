@@ -8,7 +8,7 @@ namespace Common.Constants
 {
     public static class ControllerRoutes
     {
-        //Authentication Controller
+        //Authentication Controller Routes
         public const string AUTH_ROOT = "/api/Auth/";
         public const string AUTH_LOGIN = "Login";
         public const string AUTH_SIGNUP = "Signup";

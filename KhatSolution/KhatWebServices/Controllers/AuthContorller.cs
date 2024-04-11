@@ -4,6 +4,8 @@ using Core.DTOs;
 using BLL.BusinessObjects;
 using Common.Handlers;
 using Microsoft.AspNetCore.Authorization;
+using log4net;
+using Common.Utilities;
 
 namespace KhatWebServices.Controllers
 {
@@ -33,7 +35,6 @@ namespace KhatWebServices.Controllers
                     return BadRequest(ModelState);
                 }
 
-                // Attempt to log in the user using the provided credentials.
                 ResponseHandler response = _authBO.LoginUser(loginDTO);
 
                 // Return the response with appropriate status code.
@@ -41,7 +42,8 @@ namespace KhatWebServices.Controllers
             }
             catch (Exception ex)
             {
-                // If an exception occurs, return a generic error response.
+                //Log the exception and return a generic error response.
+                LoggerUtility.LogError("Error occurred while logging in user", ex);
                 return StatusCode(500, new ResponseHandler(500, "Something went wrong!"));
             }
         }
@@ -67,7 +69,8 @@ namespace KhatWebServices.Controllers
             }
             catch (Exception ex)
             {
-                // If an exception occurs, return a generic error response.
+                //Log the exception and return a generic error response.
+                LoggerUtility.LogError("Error occurred while logging in user", ex);
                 return StatusCode(500, new ResponseHandler(500, "Something went wrong!"));
             }
         }

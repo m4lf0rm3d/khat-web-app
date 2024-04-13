@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { NAVIGATION_ROUTES } from "../data/NavigationRoutes.jsx";
-
+import PageNotFound from "../pages/404/Index.jsx";
 
 export const router = createBrowserRouter([
     ...Object.keys(NAVIGATION_ROUTES).map((key) => {
@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     }),
     {
         path: "*",
-        element: <h1>404</h1>,
+        element: <PageNotFound />,
         title: "404",
     },
 ]);

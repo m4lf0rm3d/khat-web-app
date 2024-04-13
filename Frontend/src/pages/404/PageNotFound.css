@@ -13,3 +13,26 @@
     max-width: 25rem;
     margin: 0 auto;
 }
+
+.pageNotFound h1{
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 700 !important;
+}
+
+.pageNotFound p{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.pageNotFound button{
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    outline: none;
+}

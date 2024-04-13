@@ -28,4 +28,6 @@
 .deviceNotSupportedMain h1 {
     font-size: 1.8rem;
     margin: 1rem 0;
+    font-weight: 700 !important;
+
 }

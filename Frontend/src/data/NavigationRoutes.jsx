@@ -1,5 +1,6 @@
-import { Login } from "../pages/login/Index";
+import Login from "../pages/login/Index";
 import Signup from "../pages/create-account/Index";
+import Dashboard from "../pages/dashboard/Index";
 import { DeviceNotSupported } from "../pages/device-not-supported/Index";
 
 export const NAVIGATION_ROUTES = {
@@ -17,5 +18,10 @@ export const NAVIGATION_ROUTES = {
         path: "/device-not-supported",
         component: DeviceNotSupported,
         title: "Khat | Device Not Supported",
-    }
+    },
+    DASHBOARD: {
+        path: "/dashboard",
+        component: Dashboard,
+        title: "Khat | Dashboard",
+    },
 };

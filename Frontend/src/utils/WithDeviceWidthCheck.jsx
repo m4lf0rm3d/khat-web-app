@@ -20,6 +20,7 @@ export const withDeviceWidthCheck = (WrappedComponent) => {
             };
         }, []);
 
+
         return deviceWidth <= 600 ? (
             <WrappedComponent deviceWidth={deviceWidth} location={location} />
         ) : (

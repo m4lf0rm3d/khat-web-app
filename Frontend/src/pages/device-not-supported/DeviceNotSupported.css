@@ -1,0 +1,31 @@
+.deviceNotSupported {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: auto;
+}
+
+.deviceNotSupportedMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 50rem;
+    text-align: center;
+    user-select: none;
+}
+
+.deviceNotSupportedMain img {
+    max-width: 35rem;
+    width: 100%;
+    mix-blend-mode: multiply;
+}
+
+.deviceNotSupportedMain h1 {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+}

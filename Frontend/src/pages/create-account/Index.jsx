@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
 import "./CreateAccount.css";
 import { Loader } from "../../components/Loader.jsx";
-import Config from "../../config/appsettings.json";
 import { Helmet } from "react-helmet";
 import { MessagePopup } from "../../components/MessagePopup.jsx";
+import { fetchAppSettings } from "../../utils/FetchAppSettings.js";
 
 const CreateAccount = () => {
     const [firstName, setFirstName] = useState("");
@@ -26,7 +26,17 @@ const CreateAccount = () => {
     const [creatingAccount, setCreatingAccount] = useState(false);
     const [creatingAccountSuccess, setCreatingAccountSuccess] = useState(false);
 
+    const [config, setConfig] = useState({});
+
     const navigator = useNavigate();
+
+    useEffect(() => {
+        async function fetchConfig() {
+            const config = await fetchAppSettings();
+            setConfig(config);
+        }
+        fetchConfig();
+    }, []);
 
     const validateNamePart = (namePart, namePartErrorSetter, firstOrLast) => {
         if (!namePart) return namePartErrorSetter("First name is required");
@@ -99,7 +109,7 @@ const CreateAccount = () => {
         if (validateForm()) {
             setCreatingAccount(true);
 
-            await fetch(Config.ApiUrl + "/Auth/Signup", {
+            await fetch(config.ApiUrl + "/Auth/Signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

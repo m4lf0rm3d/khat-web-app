@@ -4,9 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
 import "../create-account/CreateAccount.css";
 import { Loader } from "../../components/Loader.jsx";
-import Config from "../../config/appsettings.json";
 import { MessagePopup } from "../../components/MessagePopup.jsx";
 import { Helmet } from "react-helmet";
+import { fetchAppSettings } from "../../utils/FetchAppSettings.js";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -20,7 +20,17 @@ const Login = () => {
     const [loginAccount, setLoginAccount] = useState(false);
     const [loginAccountSuccess, setLoginAccountSuccess] = useState(false);
 
+    const [config, setConfig] = useState({});
+
     const navigator = useNavigate();
+
+    useEffect(() => {
+        async function fetchConfig() {
+            const config = await fetchAppSettings();
+            setConfig(config);
+        }
+        fetchConfig();
+    }, []);
 
     const validateEmail = () => {
         if (!email) return setEmailError("Email is required");
@@ -66,7 +76,7 @@ const Login = () => {
         if (validateForm()) {
             setLoginAccount(true);
 
-            await fetch(Config.ApiUrl + "/Auth/Login", {
+            await fetch(config.ApiUrl + "/Auth/Login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -104,7 +114,6 @@ const Login = () => {
         if (localStorage.getItem("token")) {
             navigator(NAVIGATION_ROUTES.DASHBOARD.path);
         }
-
     }, []);
 
     return (

@@ -1,5 +1,147 @@
-*{
+:root {
+    --primary-color: #5b3a1d;
+    --secondary-color: #e1c9b0;
+    --text-light: #595959;
+    --text-lighter: #888888;
+    --text-dark: #202020;
+    --main-bg-color: rgb(248, 248, 248);
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-light);
+}
+
+html {
+    font-size: 16px;
+    background-color: var(--main-bg-color);
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+}
+
+*::selection {
+    background-color: var(--secondary-color);
+    color: var(--main-bg-color);
+}
+
+/* Loader */
+.loader{
+    background: white !important;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.loaderMain{
+    animation: fadeFromLeft 300ms ease-in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+}
+
+@keyframes fadeFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes hideToRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.loader video{    
+    width: 10rem;
+}
+
+
+.loader h1{
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+}
+
+/* Message Popup */
+
+.messagePopup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    text-align: center;
+}
+
+.messagePopupMain{
+    background: white;
+    padding: 5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    animation: fadeFromLeft 300ms ease-in;
+    max-width: 18rem;
+    width: 100%;
+    margin: 10rem auto;
+    animation: popup 300ms ease-in;
+}
+
+@keyframes popup {
+    0% {
+        scale: 0;
+        opacity: 0;
+    }
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+.messagePopup i{
+    font-size: 3rem;
+}
+
+.messagePopup h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: .4rem !important;
+    color: var(--text-light) !important;
+}
+
+.messagePopup p{
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-lighter) !important;
+}
+
+.loginSuccessIcon{
+    color: var(--success-color);
+}
+
+.createAccountSuccessIcon{
+    color: var(--success-color);
 }

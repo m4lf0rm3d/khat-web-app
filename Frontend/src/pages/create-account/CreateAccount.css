@@ -1,0 +1,134 @@
+.createAccount{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.createAccountMain{
+    padding: 1rem;
+    width: 95%;
+    margin: 1rem 3rem;
+    margin-top: 0;
+    animation: showCreateAccount .5s ease;
+}
+
+@keyframes showCreateAccount{
+    0%{
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.createAccountMain h1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.inputBoxCreateAccount{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+    /* background: gold; */
+}
+
+.inputBoxCreateAccount label{
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.inputBoxCreateAccount input, .inputBoxCreateAccount select{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: .1rem solid var(--text-lighter);
+    border-radius: .5rem;
+    outline: none;
+}
+
+.inputBoxCreateAccount input:focus, .passwordBoxCreateAccount:focus, .inputBoxCreateAccount select:focus{
+    outline: none;
+    border: .1rem solid var(--primary-color);
+}
+
+.inputBoxCreateAccount span, .responseError{
+    font-size: 0.7rem;
+    color: var(--danger-color);
+    margin-top: 0.2rem;
+    animation: fadeIn 1s ease;
+}
+
+.responseError{
+    text-align: center;
+    display: block;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.passwordBoxCreateAccount{
+    position: relative;
+}
+
+.passwordBoxCreateAccount input{
+    width: 100%;
+    padding-right: 3rem;
+}
+
+.passwordBoxCreateAccount i{
+    position: absolute;
+    right: .8rem;
+    top: .6rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    animation: showPassword .5s ease;
+}
+
+@keyframes showPassword{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.createAccountMain form button{
+    padding: .8rem 1rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+    background-color: var(--primary-color);
+    color: var(--main-bg-color);
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.createAccountFooter{
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.createAccountFooter a{
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}

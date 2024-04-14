@@ -2,18 +2,23 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Core.Models;
+using Microsoft.Extensions.Configuration;
 
-namespace KhatWebServices.Models
+namespace DAL.DbContexts
 {
-    public partial class KhatTestContext : DbContext
+    public partial class KhatContext : DbContext
     {
-        public KhatTestContext()
+        IConfiguration configuration { get; set; }
+        public KhatContext()
         {
+            configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         }
 
-        public KhatTestContext(DbContextOptions<KhatTestContext> options)
+        public KhatContext(DbContextOptions<KhatContext> options)
             : base(options)
         {
+
         }
 
         public virtual DbSet<Companion> Companions { get; set; } = null!;
@@ -28,7 +33,7 @@ namespace KhatWebServices.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=KhatTest;Trusted_Connection=true");
+                optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             }
         }
 
@@ -38,7 +43,7 @@ namespace KhatWebServices.Models
             {
                 entity.ToTable("Companion");
 
-                entity.HasIndex(e => e.CompanionId, "UQ__Companio__8B53BEEADFCD665D")
+                entity.HasIndex(e => e.CompanionId, "UQ__Companio__8B53BEEAD4CC2DFD")
                     .IsUnique();
 
                 entity.Property(e => e.CompanionAid).HasColumnName("CompanionAId");
@@ -80,12 +85,12 @@ namespace KhatWebServices.Models
             modelBuilder.Entity<CompanionInvite>(entity =>
             {
                 entity.HasKey(e => e.InviteId)
-                    .HasName("PK__Companio__AFACE86D34251425");
+                    .HasName("PK__Companio__AFACE86D6BC7E71A");
 
-                entity.HasIndex(e => e.InviteId, "UQ__Companio__AFACE86CC4F8DF55")
+                entity.HasIndex(e => e.InviteId, "UQ__Companio__AFACE86C67A9A353")
                     .IsUnique();
 
-                entity.HasIndex(e => e.InviteLink, "UQ__Companio__D85C1C828EF19F3A")
+                entity.HasIndex(e => e.InviteLink, "UQ__Companio__D85C1C827C99CB2F")
                     .IsUnique();
 
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");
@@ -120,7 +125,7 @@ namespace KhatWebServices.Models
             {
                 entity.ToTable("CompanionSetting");
 
-                entity.HasIndex(e => e.CompanionSettingId, "UQ__Companio__20AC1276C9161BE6")
+                entity.HasIndex(e => e.CompanionSettingId, "UQ__Companio__20AC1276412BC5DC")
                     .IsUnique();
 
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");
@@ -129,7 +134,10 @@ namespace KhatWebServices.Models
                     .IsRequired()
                     .HasDefaultValueSql("((1))");
 
-                entity.Property(e => e.KhatExchangeTime).HasColumnType("datetime");
+                entity.Property(e => e.KhatExchangeTime)
+                    .HasMaxLength(8)
+                    .IsUnicode(false)
+                    .IsFixedLength();
 
                 entity.Property(e => e.UpdateOn).HasColumnType("datetime");
 
@@ -155,7 +163,7 @@ namespace KhatWebServices.Models
             {
                 entity.ToTable("Gender");
 
-                entity.HasIndex(e => e.GenderId, "UQ__Gender__4E24E9F680A4F041")
+                entity.HasIndex(e => e.GenderId, "UQ__Gender__4E24E9F62D9DD5E3")
                     .IsUnique();
 
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");
@@ -183,7 +191,7 @@ namespace KhatWebServices.Models
             {
                 entity.ToTable("Khat");
 
-                entity.HasIndex(e => e.KhatId, "UQ__Khat__C2C958BE31804097")
+                entity.HasIndex(e => e.KhatId, "UQ__Khat__C2C958BE0149C157")
                     .IsUnique();
 
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");
@@ -228,7 +236,7 @@ namespace KhatWebServices.Models
             {
                 entity.ToTable("KhatContent");
 
-                entity.HasIndex(e => e.KhatContentId, "UQ__KhatCont__C5D260E90F145854")
+                entity.HasIndex(e => e.KhatContentId, "UQ__KhatCont__C5D260E9896979E5")
                     .IsUnique();
 
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");
@@ -263,10 +271,10 @@ namespace KhatWebServices.Models
             {
                 entity.ToTable("User");
 
-                entity.HasIndex(e => e.UserId, "UQ__User__1788CC4D7957D3CE")
+                entity.HasIndex(e => e.UserId, "UQ__User__1788CC4D858ADBD2")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Email, "UQ__User__A9D10534478B3EF4")
+                entity.HasIndex(e => e.Email, "UQ__User__A9D10534095E3CFC")
                     .IsUnique();
 
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");

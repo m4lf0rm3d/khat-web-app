@@ -31,8 +31,8 @@ export const NAVIGATION_ROUTES = {
         component: Dashboard,
         title: "Khat | Dashboard",
     },
-    VIEW_KHAT: {
-        path: "/view-khat",
+    VIEWKHAT: {
+        path: "/viewkhat",
         component: ViewKhat,
         title: "Khat | View Khat",
     },

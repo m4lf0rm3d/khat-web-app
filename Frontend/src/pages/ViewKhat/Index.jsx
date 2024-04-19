@@ -1,5 +1,4 @@
 import React from "react";
-// import { BottomNav } from "../../components/BottomNav";
 import "./style.css";
 
 export const ViewKhat = () => {
@@ -51,14 +50,6 @@ export const ViewKhat = () => {
       </div>
       <div className="text-wrapper-5">Khat</div>
       <div className="text-wrapper-6">Time Remaining</div>
-      {/* <BottomNav
-        className="bottom-nav-instance"
-        editNote="edit-note-2.png"
-        history="image.png"
-        property1="send-khat"
-        settings="settings-2.png"
-        vector="image.svg"
-      /> */}
     </div>
   );
 };

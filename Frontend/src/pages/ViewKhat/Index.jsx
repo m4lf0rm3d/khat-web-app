@@ -1,5 +1,5 @@
 import React from "react";
-import { BottomNav } from "../../components/BottomNav";
+// import { BottomNav } from "../../components/BottomNav";
 import "./style.css";
 
 export const ViewKhat = () => {
@@ -62,3 +62,4 @@ export const ViewKhat = () => {
     </div>
   );
 };
+export default withDeviceWidthCheck(ViewKhat);

@@ -29,3 +29,5 @@ const AddCompanion = () =>{
 
     )
 }
+
+export default withDeviceWidthCheck(AddCompanion);

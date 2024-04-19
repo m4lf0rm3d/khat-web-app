@@ -3,6 +3,7 @@ import Signup from "../pages/create-account/Index";
 import AddCompanion from "../pages/add-companion/Index";
 import Dashboard from "../pages/dashboard/Index";
 import { DeviceNotSupported } from "../pages/device-not-supported/Index";
+import { ViewKhat } from "../pages/ViewKhat/Index";
 
 export const NAVIGATION_ROUTES = {
     LOGIN: {
@@ -30,9 +31,9 @@ export const NAVIGATION_ROUTES = {
         component: Dashboard,
         title: "Khat | Dashboard",
     },
-    SEND_KHAT: {
-        path: "/send-khat",
-        component: Send_Khat,
-        title: "Khat | Send Khat",
+    VIEW_KHAT: {
+        path: "/view-khat",
+        component: ViewKhat,
+        title: "Khat | View Khat",
     },
 };

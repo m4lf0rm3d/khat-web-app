@@ -75,8 +75,7 @@ export const ViewKhat = () => {
         </div>
       </div>
       <div className="text-wrapper-5">Khat</div>
-
-      <div className="text-wrapper-7">{formattedTimeRemaining}</div>
+      <div className="text-wrapper-6">{formattedTimeRemaining}</div>
     </div>
   );
 };

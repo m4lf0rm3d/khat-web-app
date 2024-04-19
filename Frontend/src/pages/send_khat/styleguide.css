@@ -1,0 +1,30 @@
+:root {
+    --neutral-colorblack: rgba(32, 32, 32, 1);
+    --neutral-colordark-grey: rgba(89, 89, 89, 1);
+    --neutral-colorgrey: rgba(136, 136, 136, 1);
+    --neutral-colorlight-grey: rgba(190, 190, 190, 1);
+    --neutral-colorwhite: rgba(255, 255, 255, 1);
+    --poppins-medium-20px-font-family: "Poppins", Helvetica;
+    --poppins-medium-20px-font-size: 20px;
+    --poppins-medium-20px-font-style: normal;
+    --poppins-medium-20px-font-weight: 500;
+    --poppins-medium-20px-letter-spacing: 0px;
+    --poppins-medium-20px-line-height: normal;
+    --poppins-regular-13px-font-family: "Poppins", Helvetica;
+    --poppins-regular-13px-font-size: 13px;
+    --poppins-regular-13px-font-style: normal;
+    --poppins-regular-13px-font-weight: 400;
+    --poppins-regular-13px-letter-spacing: 0px;
+    --poppins-regular-13px-line-height: normal;
+    --poppins-regular-16px-font-family: "Poppins", Helvetica;
+    --poppins-regular-16px-font-size: 16px;
+    --poppins-regular-16px-font-style: normal;
+    --poppins-regular-16px-font-weight: 400;
+    --poppins-regular-16px-letter-spacing: 0px;
+    --poppins-regular-16px-line-height: normal;
+    --primary-colorcolor-01: rgba(61, 140, 140, 1);
+    --secondary-colorcolor-01: rgba(36, 109, 109, 1);
+    --shadow-bottom-nav: 2px -7px 8px -7px rgba(0, 0, 0, 0.17), -2px -7px 8px -7px rgba(0, 0, 0, 0.17);
+    --variable-collection-primary-colour-brown: rgba(91, 58, 29, 1);
+  }
+  

@@ -30,4 +30,9 @@ export const NAVIGATION_ROUTES = {
         component: Dashboard,
         title: "Khat | Dashboard",
     },
+    SEND_KHAT: {
+        path: "/send-khat",
+        component: Send_Khat,
+        title: "Khat | Send Khat",
+    },
 };

@@ -1,7 +1,33 @@
 import React from "react";
 import "./style.css";
+import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck.jsx";
+import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
+import "../create-account/CreateAccount.css";
+
+function convertMsToTime(ms) {
+  // Convert milliseconds to seconds
+  const seconds = Math.floor(ms / 1000);
+  
+  // Calculate remaining hours and minutes
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  
+  // Format the time string with leading zeros for minutes
+  const formattedMinutes = minutes.toString().padStart(2, "0");
+  
+  // Construct the time remaining string
+  const timeString = `Time Remaining: ${hours}h ${formattedMinutes}m`;
+  
+  return timeString;
+}
 
 export const ViewKhat = () => {
+  const now = new Date();
+  const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+  const timeRemaining = targetTime - now;
+  const formattedTimeRemaining = convertMsToTime(timeRemaining);
+  const currentTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
   return (
     <div className="view-khat">
       <div className="overlap-group">
@@ -49,7 +75,8 @@ export const ViewKhat = () => {
         </div>
       </div>
       <div className="text-wrapper-5">Khat</div>
-      <div className="text-wrapper-6">Time Remaining</div>
+
+      <div className="text-wrapper-7">{formattedTimeRemaining}</div>
     </div>
   );
 };

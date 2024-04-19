@@ -10,6 +10,8 @@ import { fetchAppSettings } from "../../utils/FetchAppSettings.js";
 
 const AddCompanion = () =>{
 
+    const handleSubmit = async (e) => {}
+
     return (
         <section className="createAccount">
             <Helmet>
@@ -17,7 +19,11 @@ const AddCompanion = () =>{
             </Helmet>
 
             <div className="addCompanionMain">
-            <h1>Add A Companion!</h1>
+                <h1>Add A Companion!</h1>
+                <form onSubmit={handleSubmit}>
+
+                    <button type="submit">Login</button>
+                </form>
             </div>
         </section>
 

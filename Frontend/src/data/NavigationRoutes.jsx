@@ -4,6 +4,8 @@ import AddCompanion from "../pages/add-companion/Index";
 import Dashboard from "../pages/dashboard/Index";
 import { DeviceNotSupported } from "../pages/device-not-supported/Index";
 import { ViewKhat } from "../pages/ViewKhat/Index";
+import Khats from "../pages/Khats/Index"
+import KhatHistory from "../pages/KhatHistory/Index";
 
 export const NAVIGATION_ROUTES = {
     LOGIN: {
@@ -36,4 +38,15 @@ export const NAVIGATION_ROUTES = {
         component: ViewKhat,
         title: "Khat | View Khat",
     },
+    KHATS: {
+        path: "/khats",
+        component: Khats,
+        title: "Khat | Khats",
+    },
+    KHATHISTORY: {
+        path: "/khathistory",
+        component: KhatHistory,
+        title: "Khat | KhatHistory",
+    },
+
 };

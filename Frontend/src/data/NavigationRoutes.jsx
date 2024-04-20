@@ -4,6 +4,7 @@ import AddCompanion from "../pages/add-companion/Index";
 import Dashboard from "../pages/dashboard/Index";
 import { DeviceNotSupported } from "../pages/device-not-supported/Index";
 import { ViewKhat } from "../pages/ViewKhat/Index";
+import Homepage from "../pages/homepage/Index";
 
 export const NAVIGATION_ROUTES = {
     LOGIN: {
@@ -35,5 +36,10 @@ export const NAVIGATION_ROUTES = {
         path: "/viewkhat",
         component: ViewKhat,
         title: "Khat | View Khat",
+    },
+    HOMEPAGE: {
+        path: "/homepage",
+        component: Homepage,
+        title: "Khat | Home",
     },
 };

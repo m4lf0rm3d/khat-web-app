@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  input {
+    display: flex;
+    width: 290px;
+    height : 290px;
+    padding: 5px 11px;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    border-radius: 10px;
+    border: 1px solid #56300E;
+
+  }
+  
+  .button {
+    display: flex;
+    width: 152px;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 11px;
+    background: #5B3A1D;
+
+  }
+  
+  .button:hover {
+    background-color: #a96001;
+  }
+  
+  .text-wrapper {
+    color: #5b3a1d;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    height: 54px;
+    left: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 52px;
+    width: 312px;
+  }

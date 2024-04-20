@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck.jsx";
-import { Link, useNavigate } from "react-router-dom";
 import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
 import "../create-account/CreateAccount.css";
-import { Loader } from "../../components/Loader.jsx";
-import { MessagePopup } from "../../components/MessagePopup.jsx";
+
 import { Helmet } from "react-helmet";
-import { fetchAppSettings } from "../../utils/FetchAppSettings.js";
 
 const AddCompanion = () =>{
 
@@ -14,6 +11,7 @@ const AddCompanion = () =>{
         //Send Invite Link here
         //Create Record in Database
         //API Call here
+
     }
 
     const [emailError, setEmailError] = useState("");
@@ -61,7 +59,8 @@ const AddCompanion = () =>{
                         />
                         <span>{emailError}</span>
                     </div>
-                    <button type="submit">Login</button>
+
+                    <button type="submit">Add Companion</button>
                 </form>
             </div>
         </section>

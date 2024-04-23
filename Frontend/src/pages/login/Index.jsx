@@ -201,6 +201,8 @@ const Login = () => {
                         message={"Redirecting ..."}
                         messageHeader={"Success!"}
                         icon={"fa-duotone fa-check-circle loginSuccessIcon"}
+                        //navigate to home
+                        onClose={() => navigator(NAVIGATION_ROUTES.HOMEPAGE.path)}
                     />
                 )}
             </div>

@@ -49,7 +49,6 @@ export const NAVIGATION_ROUTES = {
         component: KhatHistory,
         title: "Khat | KhatHistory",
     },
-
     HOMEPAGE: {
         path: "/homepage",
         component: Homepage,

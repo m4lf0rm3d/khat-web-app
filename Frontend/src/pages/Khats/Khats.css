@@ -87,3 +87,16 @@
     margin-top: 0.2rem;
     animation: fadeIn 1s ease;
 }
+.button1 {
+  
+    width: 152px;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 11px;
+    background: #5B3A1D;
+    color : #ffffff;
+
+  }
+  

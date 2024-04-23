@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck.jsx";
 import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
 import "../create-account/CreateAccount.css";
-
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 
 const AddCompanion = () =>{
@@ -29,6 +29,13 @@ const AddCompanion = () =>{
 
         setEmailError("");
         return true;
+    };
+    const navigate = useNavigate();
+
+    // Event handler for the "View Companions" button
+    const onGoBackClick = () => {
+      // Navigate to the "KHATS" screen
+      navigate(NAVIGATION_ROUTES.HOMEPAGE.path);
     };
 
 
@@ -61,7 +68,9 @@ const AddCompanion = () =>{
                     </div>
 
                     <button type="submit">Add Companion</button>
+                    
                 </form>
+                <button className="button2" onClick={onGoBackClick}>Back To Home</button>
             </div>
         </section>
 

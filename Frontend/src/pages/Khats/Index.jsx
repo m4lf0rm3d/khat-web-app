@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck";
 import { Helmet } from "react-helmet";
 import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
+import { useNavigate } from 'react-router-dom';
 import "./Khats.css"
 
 
@@ -38,6 +39,15 @@ const Khats = () => {
     //     })
     // }
 
+      // Obtain the navigation function using useNavigate
+      const navigate = useNavigate();
+
+      // Event handler for the "View Companions" button
+      const onKhatsClick = () => {
+        // Navigate to the "KHATS" screen
+        navigate(NAVIGATION_ROUTES.HOMEPAGE.path);
+        };
+  
     return (
         <section className="Khats">
             <Helmet>
@@ -78,6 +88,12 @@ const Khats = () => {
                     );})}
                 </div>
             </div>
+
+            <button className="button1" onClick={() => { onKhatsClick() }}>Back to Home</button>
+
+
+
+
             
         </section>
     );

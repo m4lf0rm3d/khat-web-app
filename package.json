@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "ionicons": "^7.3.1",
+    "react-ionicons": "^4.2.1",
+    "react-native-ionicons": "^4.6.5"
+  }
+}

@@ -4,6 +4,8 @@ import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
 import "../create-account/CreateAccount.css";
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from "react-helmet";
+import { MailOutline, HomeOutline, PersonAddOutline } from 'react-ionicons';
+//import { mailOutline, personAddOutline } from 'ionicons/icons';
 
 const AddCompanion = () =>{
 
@@ -70,10 +72,38 @@ const AddCompanion = () =>{
                     <button type="submit">Add Companion</button>
                     
                 </form>
+                <div class = "navigation">
+                    <ul>
+                        <li class = "list active">
+                            <a href = "#">
+                                <span class = "icon">
+                                    <HomeOutline/>
+                                </span>
+                                <span class = "text">Home</span>
+                            </a>
+                        </li>
+                        <li class = "list">
+                            <a href = "#">
+                                <span class = "icon">
+                                    <MailOutline/>
+                                </span>
+                                <span class = "text">Khats</span>
+                            </a>
+                        </li>
+                        <li class = "list">
+                            <a href = "#">
+                                <span class = "icon">
+                                    <PersonAddOutline/>
+                                </span>
+                                <span class = "text">Add Companion</span>
+                            </a>
+                        </li>
+                        <div class="indicator"></div>
+                    </ul>
+                </div>
                 <button className="button2" onClick={onGoBackClick}>Back To Home</button>
             </div>
         </section>
-
     )
 }
 

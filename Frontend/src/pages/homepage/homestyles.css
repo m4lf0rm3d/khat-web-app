@@ -105,4 +105,78 @@
     padding-top: 10px;
 
   }
-  
+
+.navigation
+{
+      position: relative;
+      width: 400px;
+      height: 70px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+}
+.navigation ul{
+  display: flex;
+  width: 350px;
+}
+.navigation ul li{
+  position: relative;
+  list-style: none;
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+}
+.navigation ul li a{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+.navigation ul li a .icon{
+  position: relative;
+  display: block;
+  line-height: 75px;
+  font-size: 1.5em;
+  text-align: center;
+  transition: 0.5s;
+  color: #5b3a1d;
+}
+
+.navigation ul li.active a .icon
+{
+  transform: translateY(-35px);
+}
+
+.navigation ul li a .text
+{
+  position: absolute;
+  color: #5b3a1d;
+  font-weight: 0.75em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.navigation ul li.active a .text
+{
+  opacity: 1;
+  transform: translateY(10px);
+}
+.indicator
+{
+  position: absolute;
+  top: -50%;
+  width: 70px;
+  height: 70px;
+  background: #f6b764;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  transition: 0.5s;
+}

@@ -5,18 +5,18 @@ import "../create-account/CreateAccount.css";
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { MailOutline, HomeOutline, PersonAddOutline } from 'react-ionicons';
-//import { mailOutline, personAddOutline } from 'ionicons/icons';
 
-const AddCompanion = () =>{
+const AddCompanion = () => {
+    const [email, setEmail] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
+        e.preventDefault();
         //Send Invite Link here
         //Create Record in Database
         //API Call here
-
     }
-
-    const [emailError, setEmailError] = useState("");
 
     const validateEmail = () => {
         if (!email) return setEmailError("Email is required");
@@ -32,21 +32,32 @@ const AddCompanion = () =>{
         setEmailError("");
         return true;
     };
-    const navigate = useNavigate();
 
-    // Event handler for the "View Companions" button
     const onGoBackClick = () => {
-      // Navigate to the "KHATS" screen
-      navigate(NAVIGATION_ROUTES.HOMEPAGE.path);
+        // Navigate to the "KHATS" screen
+        navigate(NAVIGATION_ROUTES.HOMEPAGE.path);
     };
 
+    useEffect(() => {
+        const ulElement = document.querySelector('.navigation ul');
+        const activeLink = (e) => {
+            const target = e.target.closest('li');
+            if (!target) return;
+            const listItems = ulElement.querySelectorAll('li');
+            listItems.forEach((item) => item.classList.remove('active'));
+            target.classList.add('active');
+        };
+        ulElement.addEventListener('click', activeLink);
+        return () => {
+            ulElement.removeEventListener('click', activeLink);
+        };
+    }, []);
 
     return (
         <section className="createAccount">
             <Helmet>
                 <title>{NAVIGATION_ROUTES.ADD_COMPANION.title}</title>
             </Helmet>
-
             <div className="createAccountMain">
                 <h1>Add A Companion!</h1>
                 <form onSubmit={handleSubmit}>
@@ -58,6 +69,7 @@ const AddCompanion = () =>{
                             name="email"
                             placeholder="Enter your Companions email address"
                             required
+                            value={email}
                             onChange={(e) => {
                                 setEmail(e.target.value);
                                 setEmailError("");
@@ -68,43 +80,42 @@ const AddCompanion = () =>{
                         />
                         <span>{emailError}</span>
                     </div>
-
                     <button type="submit">Add Companion</button>
-                    
                 </form>
-                <div class = "navigation">
+                <div className="navigation">
                     <ul>
-                        <li class = "list active">
-                            <a href = "#">
-                                <span class = "icon">
-                                    <HomeOutline/>
+                        <li className="list active">
+                            <a href="#">
+                                <span className="icon">
+                                    <HomeOutline />
                                 </span>
-                                <span class = "text">Home</span>
+                                <span className="text">Home</span>
                             </a>
                         </li>
-                        <li class = "list">
-                            <a href = "#">
-                                <span class = "icon">
-                                    <MailOutline/>
+                        <li className="list">
+                            <a href="#">
+                                <span className="icon">
+                                    <MailOutline />
                                 </span>
-                                <span class = "text">Khats</span>
+                                <span className="text">Khats</span>
                             </a>
                         </li>
-                        <li class = "list">
-                            <a href = "#">
-                                <span class = "icon">
-                                    <PersonAddOutline/>
+                        <li className="list">
+                            <a href="#">
+                                <span className="icon">
+                                    <PersonAddOutline />
                                 </span>
-                                <span class = "text">Add Companion</span>
+                                <span className="text">Add Companion</span>
                             </a>
                         </li>
-                        <div class="indicator"></div>
+                        <div className="indicator"></div>
                     </ul>
                 </div>
                 <button className="button2" onClick={onGoBackClick}>Back To Home</button>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default withDeviceWidthCheck(AddCompanion);
+

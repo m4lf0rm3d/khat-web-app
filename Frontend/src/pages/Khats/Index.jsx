@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck";
 import { Helmet } from "react-helmet";
 import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation
+import "../create-account/CreateAccount.css";
 import "./Khats.css"
-
-
+import { MailOutline, HomeOutline, PersonAddOutline } from 'react-ionicons';
 
 const Khats = () => {
     const [searchText, setSearchText] = useState("");
+    const [activeIndex, setActiveIndex] = useState(2); // Initialize activeIndex with a default value
+
+    const location = useLocation(); // Use useLocation to get the current location
+
     const sampleData = [
         {
             id: 0,
@@ -28,26 +32,25 @@ const Khats = () => {
             lastName: "Azeemi",
             imgUrl: ""
         },
-    ]
+    ];
 
-    // for(let i = 0; i < 20; i ++){
-    //     sampleData.push({
-    //         id: i+3,
-    //         firstName: "Ahsan",
-    //         lastName: "Azeemi",
-    //         imgUrl: ""
-    //     })
-    // }
+    const navigate = useNavigate();
 
-      // Obtain the navigation function using useNavigate
-      const navigate = useNavigate();
+    const handleItemClick = (path, index) => {
+        navigate(path);
+        setActiveIndex(index);
+    };
 
-      // Event handler for the "View Companions" button
-      const onKhatsClick = () => {
-        // Navigate to the "KHATS" screen
-        navigate(NAVIGATION_ROUTES.HOMEPAGE.path);
-        };
-  
+    useEffect(() => {
+        const routes = [
+            NAVIGATION_ROUTES.HOMEPAGE.path,
+            NAVIGATION_ROUTES.ADD_COMPANION.path,
+            NAVIGATION_ROUTES.KHATS.path
+        ];
+        const index = routes.indexOf(location.pathname);
+        setActiveIndex(index);
+    }, [location.pathname]);
+
     return (
         <section className="Khats">
             <Helmet>
@@ -55,18 +58,16 @@ const Khats = () => {
             </Helmet>
             <div className="khatsMain">
                 <h1>Khats</h1>
-                {/* search */}
                 <div className="inputBoxKhats">
                     <input className="searchBarKhats" type="text" onInput={(e) => {
                         setSearchText(e.target.value);
                     }}/>
                 </div>
-                {/* companions */}
                 <div className="companionlistKhats">
                     {sampleData.map((companion) => {    
                         if(companion.firstName.toLowerCase().startsWith(searchText.toLowerCase()))
                             return(
-                                 <button 
+                                <button 
                                     key={companion.id}
                                     className="companionTileKhats"
                                     onClick={() => {
@@ -74,27 +75,50 @@ const Khats = () => {
                                     }}>
                                         {companion.imgUrl == "" ?                                             
                                             <img
-                                            className="companionImageKhats" 
-                                            src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
-                                            alt="No image" />   
+                                                className="companionImageKhats" 
+                                                src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
+                                                alt="No image" />   
                                         : 
                                             <img 
-                                            className="companionImageKhats"
-                                            src={companion.imgUrl} 
-                                             alt="No image" />                                                                        
+                                                className="companionImageKhats"
+                                                src={companion.imgUrl} 
+                                                alt="No image" />                                                                        
                                         }
                                         {companion.firstName} {companion.lastName}
                                 </button>
-                    );})}
+                            );
+                    })}
                 </div>
-            </div>
-
-            <button className="button1" onClick={() => { onKhatsClick() }}>Back to Home</button>
-
-
-
-
-            
+                <div className="navigation">
+                    <ul>
+                        <li className={`list ${activeIndex === 0 ? 'active' : ''}`} onClick={() => handleItemClick(NAVIGATION_ROUTES.HOMEPAGE.path, 0)}>
+                            <a href="#">
+                                <span className="icon">
+                                    <HomeOutline />
+                                </span>
+                                <span className="text">Home</span>
+                            </a>
+                        </li>
+                        <li className={`list ${activeIndex === 1 ? 'active' : ''}`} onClick={() => handleItemClick(NAVIGATION_ROUTES.ADD_COMPANION.path, 1)}>
+                            <a href="#">
+                                <span className="icon">
+                                    <PersonAddOutline />
+                                </span>
+                                <span className="text">Add Companion</span>
+                            </a>
+                        </li>
+                        <li className={`list ${activeIndex === 2 ? 'active' : ''}`} onClick={() => handleItemClick(NAVIGATION_ROUTES.KHATS.path, 2)}>
+                            <a href="#">
+                                <span className="icon">
+                                    <MailOutline />
+                                </span>
+                                <span className="text">Khats</span>
+                            </a>
+                        </li>
+                        <div className="indicator"></div>
+                    </ul>
+                </div>
+            </div>   
         </section>
     );
 }

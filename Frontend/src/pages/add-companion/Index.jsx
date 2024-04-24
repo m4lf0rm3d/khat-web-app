@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck.jsx";
 import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
 import "../create-account/CreateAccount.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { MailOutline, HomeOutline, PersonAddOutline } from 'react-ionicons';
 
@@ -10,6 +10,8 @@ const AddCompanion = () => {
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
     const navigate = useNavigate();
+    const location = useLocation();
+    const [activeIndex, setActiveIndex] = useState(1); // Set initial active index to 1 for "Add Companion"
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -38,20 +40,34 @@ const AddCompanion = () => {
         navigate(NAVIGATION_ROUTES.HOMEPAGE.path);
     };
 
+    const handleItemClick = (route, index) => {
+    // Add animation to move the indicator
+    const indicator = document.querySelector('.indicator');
+    const listItems = document.querySelectorAll('.list');
+    const currentItem = listItems[activeIndex];
+    const targetItem = listItems[index];
+    const indicatorPosition = targetItem.offsetLeft - currentItem.offsetLeft;
+    indicator.style.transition = 'transform 0.5s ease-in-out';
+    indicator.style.transform = `translateX(${indicatorPosition}px)`;
+
+    // Delay navigation after animation
+    setTimeout(() => {
+        navigate(route);
+        setActiveIndex(index);
+    }, 150); // 0.3s delay to match the animation duration
+    };
+
     useEffect(() => {
-        const ulElement = document.querySelector('.navigation ul');
-        const activeLink = (e) => {
-            const target = e.target.closest('li');
-            if (!target) return;
-            const listItems = ulElement.querySelectorAll('li');
-            listItems.forEach((item) => item.classList.remove('active'));
-            target.classList.add('active');
-        };
-        ulElement.addEventListener('click', activeLink);
-        return () => {
-            ulElement.removeEventListener('click', activeLink);
-        };
-    }, []);
+        // Map the routes to their corresponding paths
+        const routes = [
+            NAVIGATION_ROUTES.HOMEPAGE.path,
+            NAVIGATION_ROUTES.ADD_COMPANION.path,
+            NAVIGATION_ROUTES.KHATS.path
+        ];
+        // Find the index of the current location
+        const index = routes.indexOf(location.pathname);
+        setActiveIndex(index);
+    }, [location.pathname]);
 
     return (
         <section className="createAccount">
@@ -67,7 +83,7 @@ const AddCompanion = () => {
                             type="email"
                             id="email"
                             name="email"
-                            placeholder="Enter your Companions email address"
+                            placeholder="Enter your Companion's email address"
                             required
                             value={email}
                             onChange={(e) => {
@@ -84,7 +100,7 @@ const AddCompanion = () => {
                 </form>
                 <div className="navigation">
                     <ul>
-                        <li className="list active">
+                        <li className={`list ${activeIndex === 0 ? 'active' : ''}`} onClick={() => handleItemClick(NAVIGATION_ROUTES.HOMEPAGE.path, 0)}>
                             <a href="#">
                                 <span className="icon">
                                     <HomeOutline />
@@ -92,15 +108,7 @@ const AddCompanion = () => {
                                 <span className="text">Home</span>
                             </a>
                         </li>
-                        <li className="list">
-                            <a href="#">
-                                <span className="icon">
-                                    <MailOutline />
-                                </span>
-                                <span className="text">Khats</span>
-                            </a>
-                        </li>
-                        <li className="list">
+                        <li className={`list ${activeIndex === 1 ? 'active' : ''}`} onClick={() => handleItemClick(NAVIGATION_ROUTES.ADD_COMPANION.path, 1)}>
                             <a href="#">
                                 <span className="icon">
                                     <PersonAddOutline />
@@ -108,14 +116,20 @@ const AddCompanion = () => {
                                 <span className="text">Add Companion</span>
                             </a>
                         </li>
+                        <li className={`list ${activeIndex === 2 ? 'active' : ''}`} onClick={() => handleItemClick(NAVIGATION_ROUTES.KHATS.path, 2)}>
+                            <a href="#">
+                                <span className="icon">
+                                    <MailOutline />
+                                </span>
+                                <span className="text">Khats</span>
+                            </a>
+                        </li>
                         <div className="indicator"></div>
                     </ul>
                 </div>
-                <button className="button2" onClick={onGoBackClick}>Back To Home</button>
             </div>
         </section>
     );
 };
 
 export default withDeviceWidthCheck(AddCompanion);
-

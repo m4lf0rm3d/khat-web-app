@@ -35,10 +35,6 @@ const AddCompanion = () => {
         return true;
     };
 
-    const onGoBackClick = () => {
-        // Navigate to the "KHATS" screen
-        navigate(NAVIGATION_ROUTES.HOMEPAGE.path);
-    };
 
     const handleItemClick = (route, index) => {
     // Add animation to move the indicator

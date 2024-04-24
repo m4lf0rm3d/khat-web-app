@@ -36,15 +36,6 @@ import { MailOutline, HomeOutline, PersonAddOutline } from 'react-ionicons';
       // Obtain the navigation function using useNavigate
     const navigate = useNavigate();
 
-    // Event handler for the "View Companions" button
-    const onViewCompanionsClick = () => {
-      // Navigate to the "KHATS" screen
-      navigate(NAVIGATION_ROUTES.KHATS.path);
-    };
-    const onAddCompanionsClick = () => {
-      // Navigate to the "KHATS" screen
-      navigate(NAVIGATION_ROUTES.ADD_COMPANION.path);
-    };
     const onViewKhatClick = () => {
       // Navigate to the "KHATS" screen
       navigate(NAVIGATION_ROUTES.VIEWKHAT.path);

@@ -82,10 +82,10 @@ namespace BLL.BusinessObjects
                 };
 
                 // Add the new user to the database context.
-                _khatContext.Users.AddAsync(user);
+                _khatContext.Users.Add(user);
 
                 // Persist changes to the database.
-                _khatContext.SaveChangesAsync();
+                _khatContext.SaveChanges();
 
                 // Generate a token for the new user.
                 string token = AuthTokenUtility.GenerateToken(user.UserId);

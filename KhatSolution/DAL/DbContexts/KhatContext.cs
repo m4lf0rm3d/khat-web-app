@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Core.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Data.SqlClient;
 
 namespace DAL.DbContexts
 {
@@ -35,6 +36,11 @@ namespace DAL.DbContexts
             {
                 optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             }
+        }
+
+        public void ExecuteStoredProcedureWithoutResult(string procedureName, SqlParameter[] parameters)
+        {
+            Database.ExecuteSqlRaw($"EXECUTE {procedureName} @InviteLinkId", parameters);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

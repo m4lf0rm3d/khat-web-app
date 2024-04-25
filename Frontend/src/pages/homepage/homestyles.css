@@ -7,14 +7,29 @@
   min-height: 50vh; /* Ensure the container expands to fit content */
 }
 
+.homepage {
+  display: flex;
+  flex-direction: column;
+  flex: 1
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 10px; /* Adjust padding for smaller screens */
   }
 }
+
+
+.buttoncontainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
   
   .inputhome {
     display: flex;
+    resize: none;
+    overflow-y; auto;
     flex-direction: column;
     justify-content: start;
     width: 290px;
@@ -107,8 +122,9 @@
   }
 
 .navigation
-{
-      position: relative;
+{      
+      position: fixed;
+      bottom: 0;
       width: 400px;
       height: 70px;
       background: #fff;
@@ -219,4 +235,18 @@
 .navigation ul li:nth-child(3).active ~ .indicator
 {
   transform: translateX(calc(70px * 2))
+}
+
+.text1
+{
+  position: absolute;
+  color: #5b3a1d;
+  font-size: 18px;
+  font-weight: 0.75em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(10px);
 }

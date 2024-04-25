@@ -78,41 +78,43 @@ import { MailOutline, HomeOutline, PersonAddOutline } from 'react-ionicons';
 
         <div className="container">
 
-          <input className = "inputhome" type="text"  placeholder="Enter your Khat here!" />
-          <button className="button1">Add To Khat</button>
-          <button className="button2" onClick={onViewKhatClick}>View CurrentKhat</button>
+          <textarea className = "inputhome" type="text"  placeholder="Enter your Khat here!" />
+          <div className="buttoncontainer">
+            <button className="button1">Add To Khat</button>
+            <button className="button2" onClick={onViewKhatClick}>View CurrentKhat</button>
+          </div>
           
           <div className="text-wrapper-6">{formattedTimeRemaining}</div> 
         </div>
-                  <div className="navigation">
-                    <ul>
-                        <li className="list active">
-                            <a href="#">
-                                <span className="icon">
-                                    <HomeOutline />
-                                </span>
-                                <span className="text">Home</span>
-                            </a>
-                        </li>
-                        <li className="list">
-                            <a href="#">
-                                <span className="icon">
-                                    <PersonAddOutline />
-                                </span>
-                                <span className="text">Add Companion</span>
-                            </a>
-                        </li>
-                        <li className="list">
-                            <a href="#">
-                                <span className="icon">
-                                    <MailOutline />
-                                </span>
-                                <span className="text">Khat</span>
-                            </a>
-                        </li>
-                        <div className="indicator"></div>
-                    </ul>
-                </div>
+        <div className="navigation">
+          <ul>
+              <li className="list active">
+                  <a href="#">
+                      <span className="icon">
+                          <HomeOutline />
+                      </span>
+                      <span className="text">Home</span>
+                  </a>
+              </li>
+              <li className="list">
+                  <a href="#">
+                      <span className="icon">
+                          <PersonAddOutline />
+                      </span>
+                      <span className="text">Add Companion</span>
+                  </a>
+              </li>
+              <li className="list">
+                  <a href="#">
+                      <span className="icon">
+                          <MailOutline />
+                      </span>
+                      <span className="text">Khat</span>
+                  </a>
+              </li>
+              <div className="indicator"></div>
+          </ul>
+      </div>
       </section>
     );
   };

@@ -3,7 +3,7 @@ import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck";
 import { Helmet } from "react-helmet";
 import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
 import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation
-import "../create-account/CreateAccount.css";
+import "../homepage/homestyles.css";
 import "./Khats.css"
 import { MailOutline, HomeOutline, PersonAddOutline } from 'react-ionicons';
 
@@ -112,7 +112,7 @@ const Khats = () => {
                                 <span className="icon">
                                     <MailOutline />
                                 </span>
-                                <span className="text">Khats</span>
+                                <span className="text1">Khats</span>
                             </a>
                         </li>
                         <div className="indicator"></div>

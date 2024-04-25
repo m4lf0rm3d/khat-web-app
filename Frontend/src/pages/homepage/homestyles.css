@@ -15,14 +15,14 @@
   
   .inputhome {
     display: flex;
+    flex-direction: column;
+    justify-content: start;
     width: 290px;
     height: 290px; /* Adjust max-height as needed */
-    padding: 5px 11px;
+    text-align: left;
     gap: 2px;
     border-radius: 10px;
     border: 3px solid #56300E;
-    overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x: auto; /* Enable vertical scrolling */
     white-space: pre-wrap; /* Wrap text to new line when needed */
   }
   .khatsMain{

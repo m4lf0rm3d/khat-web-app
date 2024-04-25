@@ -57,8 +57,7 @@ import './homestyles.css';
           <title>{NAVIGATION_ROUTES.HOMEPAGE.title}</title>
         </Helmet>
 
-        <div className="khatsMain">Khat 
-        HomePage</div>
+        <div className="khatsMain">Khat </div>
 
         <div className="container">
 

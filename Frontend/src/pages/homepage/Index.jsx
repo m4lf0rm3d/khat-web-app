@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet';
 import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck.jsx";
 import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './homestyles.css';
+import { MailOutline, HomeOutline, PersonAddOutline } from 'react-ionicons';
 
 
   function convertMsToTime(ms) {
@@ -34,21 +36,36 @@ import './homestyles.css';
       // Obtain the navigation function using useNavigate
     const navigate = useNavigate();
 
-    // Event handler for the "View Companions" button
-    const onViewCompanionsClick = () => {
-      // Navigate to the "KHATS" screen
-      navigate(NAVIGATION_ROUTES.KHATS.path);
-    };
-    const onAddCompanionsClick = () => {
-      // Navigate to the "KHATS" screen
-      navigate(NAVIGATION_ROUTES.ADD_COMPANION.path);
-    };
     const onViewKhatClick = () => {
       // Navigate to the "KHATS" screen
       navigate(NAVIGATION_ROUTES.VIEWKHAT.path);
     };
 
+    useEffect(() => {
+      const ulElement = document.querySelector('.navigation ul');
+      const activeLink = (e) => {
+          const target = e.target.closest('li');
+          if (!target) return;
+          const listItems = ulElement.querySelectorAll('li');
+          listItems.forEach((item) => item.classList.remove('active'));
+          target.classList.add('active');
 
+          // Find the index of the clicked item
+          const index = Array.from(listItems).indexOf(target);
+          // Map the index to the corresponding route
+          const routes = [
+              NAVIGATION_ROUTES.HOMEPAGE.path,
+              NAVIGATION_ROUTES.ADD_COMPANION.path,
+              NAVIGATION_ROUTES.KHATS.path
+          ];
+          // Navigate to the corresponding route
+          navigate(routes[index]);
+      };
+      ulElement.addEventListener('click', activeLink);
+      return () => {
+          ulElement.removeEventListener('click', activeLink);
+      };
+  }, [navigate]);
 
     
     return (
@@ -64,22 +81,38 @@ import './homestyles.css';
           <input className = "inputhome" type="text"  placeholder="Enter your Khat here!" />
           <button className="button1">Add To Khat</button>
           <button className="button2" onClick={onViewKhatClick}>View CurrentKhat</button>
-          <button className="button2" onClick={onViewCompanionsClick}>View Companions</button>
-          <button className="button2" onClick={onAddCompanionsClick}>Add a Companion</button>
           
-
-
-
           <div className="text-wrapper-6">{formattedTimeRemaining}</div> 
         </div>
-
-
-
-          
-
-        
-        
-       
+                  <div className="navigation">
+                    <ul>
+                        <li className="list active">
+                            <a href="#">
+                                <span className="icon">
+                                    <HomeOutline />
+                                </span>
+                                <span className="text">Home</span>
+                            </a>
+                        </li>
+                        <li className="list">
+                            <a href="#">
+                                <span className="icon">
+                                    <PersonAddOutline />
+                                </span>
+                                <span className="text">Add Companion</span>
+                            </a>
+                        </li>
+                        <li className="list">
+                            <a href="#">
+                                <span className="icon">
+                                    <MailOutline />
+                                </span>
+                                <span className="text">Khat</span>
+                            </a>
+                        </li>
+                        <div className="indicator"></div>
+                    </ul>
+                </div>
       </section>
     );
   };

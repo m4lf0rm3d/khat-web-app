@@ -20,5 +20,12 @@ namespace Common.Constants
         public const string GET_COMPANIONS_LIST = "GetCompanionsList";
         public const string SEND_COMPANION_INVITE = "SendCompanionInvite";
         public const string ACCEPT_COMPANION_INVITE = "AcceptCompanionInvite";
+
+        // Khat Controller Routes
+        public const string KHAT_ROOT = "/api/Khat/";
+        public const string ADD_MESSAGE_TO_KHAT = "AddMessage";
+        public const string GET_SELF_KHAT = "GetSelf";
+        public const string GET_KHAT_BY_COMPANION_ID = "GetKhatByCompanionId";
+        public const string GET_KHAT_CONTENT = "GetKhatContent";
     }
 }

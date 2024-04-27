@@ -109,14 +109,15 @@ namespace BLL.BusinessObjects
                 HashSet<int> companionIds = _khatContext.Companions.Where(companion => (companion.CompanionAid == userId || companion.CompanionBid == userId) && companion.IsActive == true).Select(companion => companion.CompanionAid == userId ? companion.CompanionBid : companion.CompanionAid).ToHashSet();
 
                 // Get the list of users from the companion ids
-                List<UserViewModel> companions = _khatContext.Users
+                List<CompanionViewModel> companions = _khatContext.Users
                     .Where(user => companionIds.Contains(user.UserId))
-                    .Select(user => new UserViewModel
+                    .Select(user => new CompanionViewModel
                     {
                         UserId = user.UserId,
                         FirstName = user.FirstName,
                         LastName = user.LastName,
-                        Email = user.Email
+                        Email = user.Email,
+                        CompanionId = _khatContext.Companions.FirstOrDefault(companion => (companion.CompanionAid == user.UserId && companion.CompanionBid == userId) || (companion.CompanionAid == userId && companion.CompanionBid == user.UserId)).CompanionId
                     })
                     .ToList();
 

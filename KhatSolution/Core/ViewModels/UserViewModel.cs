@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.ViewModels
 {
-    public class UserViewModel
+    public class CompanionViewModel
     {
+        public int CompanionId { get; set; }
         public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

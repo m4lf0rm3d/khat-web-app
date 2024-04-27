@@ -5,8 +5,9 @@ import Dashboard from "../pages/dashboard/Index";
 import { DeviceNotSupported } from "../pages/device-not-supported/Index";
 import { ViewKhat } from "../pages/ViewKhat/Index";
 import Khats from "../pages/Khats/Index"
-import KhatHistory from "../pages/KhatHistory/Index";
+import  CompanionsList from "../pages/CompanionsList/Index";
 import Homepage from "../pages/homepage/Index"
+import ViewReceivedKhat from "../pages/ViewReceivedKhat/Index";
 
 export const NAVIGATION_ROUTES = {
     LOGIN: {
@@ -39,15 +40,20 @@ export const NAVIGATION_ROUTES = {
         component: ViewKhat,
         title: "Khat | View Khat",
     },
+    COMPANIONSLIST: {
+        path: "/companions",
+        component: CompanionsList,
+        title: "Khat | Companions",
+    },
     KHATS: {
-        path: "/khats",
+        path: "/companions/:companionId/khats/",
         component: Khats,
         title: "Khat | Khats",
     },
-    KHATHISTORY: {
-        path: "/khathistory",
-        component: KhatHistory,
-        title: "Khat | KhatHistory",
+    VIEWRECEIVEDKHAT: {
+        path: "/companions/:companionId/khats/:khatId",
+        component: ViewReceivedKhat,
+        title: "Khat | ViewReceivedKhat",
     },
     HOMEPAGE: {
         path: "/homepage",

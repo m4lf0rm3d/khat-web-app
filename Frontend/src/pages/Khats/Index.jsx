@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
-import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck";
+import React from "react";
 import { Helmet } from "react-helmet";
-import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
-import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation
-import "../homepage/homestyles.css";
+import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck";
+import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes";
+import { useEffect } from "react";
 import "./Khats.css"
-import { MailOutline, HomeOutline, PersonAddOutline } from 'react-ionicons';
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 
-const Khats = () => {
-    const [searchText, setSearchText] = useState("");
-    const [activeIndex, setActiveIndex] = useState(2); // Initialize activeIndex with a default value
-
-    const location = useLocation(); // Use useLocation to get the current location
-
-    const sampleData = [
+const Khats = ({firstName, lastName, imgUrl = "", id = 0}) => {
+    const navigate = useNavigate();
+    const {companionId} = useParams();
+    const companionData = [
         {
             id: 0,
             firstName: "Muzammil",
@@ -26,100 +22,81 @@ const Khats = () => {
             lastName: "Hussain",
             imgUrl: ""
         },
+    ]
+
+    const sampleData = [                      
         {
-            id: 2,
-            firstName: "Ahsan",
-            lastName: "Azeemi",
-            imgUrl: ""
+            id: 0,
+            isSender: 0,            
+            date: "20/08/23",
+            isSender: 0,
+            content: "Hello, how are you. I recently bought this Charizard for 70rs that white people have to sell their souls for."
+
         },
+        {
+            id: 1,
+            isSender: 1,
+            date: "05/02/24",
+            isSender: 1,
+            content: "Im good, its been a while since we talked. That card is fake btw"
+        },          
     ];
 
-    const navigate = useNavigate();
-
-    const handleItemClick = (path, index) => {
-        navigate(path);
-        setActiveIndex(index);
-    };
-
     useEffect(() => {
-        const routes = [
-            NAVIGATION_ROUTES.HOMEPAGE.path,
-            NAVIGATION_ROUTES.ADD_COMPANION.path,
-            NAVIGATION_ROUTES.KHATS.path
-        ];
-        const index = routes.indexOf(location.pathname);
-        setActiveIndex(index);
-    }, [location.pathname]);
+        // Convert the date strings to a sortable format (YYYY/MM/DD)
+        sampleData.forEach(data => {
+            const [day, month, year] = data.date.split('/');
+            data.sortableDate = `20${year}/${month}/${day}`;
+        });
+
+        // Sort the array based on the sortableDate property
+        sampleData.sort((a, b) => new Date(a.sortableDate) - new Date(b.sortableDate));
+
+        // Remove the temporary sortableDate property
+        sampleData.forEach(data => delete data.sortableDate);
+    }, []);
 
     return (
-        <section className="Khats">
+        <div className="khatHistory">
             <Helmet>
                 <title>{NAVIGATION_ROUTES.KHATS.title}</title>
             </Helmet>
-            <div className="khatsMain">
-                <h1>Khats</h1>
-                <div className="inputBoxKhats">
-                    <input className="searchBarKhats" type="text" onInput={(e) => {
-                        setSearchText(e.target.value);
-                    }}/>
-                </div>
-                <div className="companionlistKhats">
-                    {sampleData.map((companion) => {    
-                        if(companion.firstName.toLowerCase().startsWith(searchText.toLowerCase()))
-                            return(
-                                <button 
-                                    key={companion.id}
-                                    className="companionTileKhats"
-                                    onClick={() => {
-                                        console.log("clicked");
-                                    }}>
-                                        {companion.imgUrl == "" ?                                             
-                                            <img
-                                                className="companionImageKhats" 
-                                                src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
-                                                alt="No image" />   
-                                        : 
-                                            <img 
-                                                className="companionImageKhats"
-                                                src={companion.imgUrl} 
-                                                alt="No image" />                                                                        
-                                        }
-                                        {companion.firstName} {companion.lastName}
-                                </button>
+            <div className="khatHistoryMain">
+                <h1>Khats</h1>                
+                {imgUrl == "" ?                                             
+                <img
+                    className="companionImageKhatHistory" 
+                    src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
+                    alt="No image" />   
+                    : 
+                <img 
+                    className="companionImageKhatHistory"
+                    src={imgUrl} 
+                    alt="No image" />                                                                        
+                }
+                <div className="khatDatesKhatHistory">
+                    {
+                        sampleData.map((khat) => {
+                            return (                                
+                                <Link                            
+                                key={khat.id} 
+                                onClick={(e) => {
+                                    navigate(NAVIGATION_ROUTES.VIEWRECEIVEDKHAT.path.                                    
+                                        replace(":companionId", companionId)
+                                        .replace(":khatId", khat.id))
+                                }}
+                                // style={{backgroundColor: "black"}}
+                                className="viewKhatButtonKhatHistory">
+                                    <div className="khatHistoryDate">{khat.date}</div>
+                                    {/* Add khat here */}
+                                </Link>                                                        
                             );
-                    })}
+                        })
+                    }
                 </div>
-                <div className="navigation">
-                    <ul>
-                        <li className={`list ${activeIndex === 0 ? 'active' : ''}`} onClick={() => handleItemClick(NAVIGATION_ROUTES.HOMEPAGE.path, 0)}>
-                            <a href="#">
-                                <span className="icon">
-                                    <HomeOutline />
-                                </span>
-                                <span className="text">Home</span>
-                            </a>
-                        </li>
-                        <li className={`list ${activeIndex === 1 ? 'active' : ''}`} onClick={() => handleItemClick(NAVIGATION_ROUTES.ADD_COMPANION.path, 1)}>
-                            <a href="#">
-                                <span className="icon">
-                                    <PersonAddOutline />
-                                </span>
-                                <span className="text">Add Companion</span>
-                            </a>
-                        </li>
-                        <li className={`list ${activeIndex === 2 ? 'active' : ''}`} onClick={() => handleItemClick(NAVIGATION_ROUTES.KHATS.path, 2)}>
-                            <a href="#">
-                                <span className="icon">
-                                    <MailOutline />
-                                </span>
-                                <span className="text1">Khats</span>
-                            </a>
-                        </li>
-                        <div className="indicator"></div>
-                    </ul>
-                </div>
-            </div>   
-        </section>
+            </div>
+            
+        </div>
     );
 }
 

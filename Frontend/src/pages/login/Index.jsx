@@ -97,7 +97,7 @@ const Login = () => {
                             localStorage.setItem("token", json.token);
                             setLoginAccountSuccess(false);
                             // Update redirection to homepage instead of dashboard
-                            navigator(NAVIGATION_ROUTES.HOMEPAGE.path); 
+                            navigator(NAVIGATION_ROUTES.HOME.path); 
                             // navigator(NAVIGATION_ROUTES.DASHBOARD.path);
                         }, 2000);
                     } else {

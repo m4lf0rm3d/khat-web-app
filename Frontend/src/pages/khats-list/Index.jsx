@@ -4,11 +4,11 @@ import { fetchAppSettings } from "../../utils/FetchAppSettings";
 import { Link, useParams } from "react-router-dom";
 import { NavBar } from "../../components/Navbar";
 
-const ViewReceivedKhat = () => {
+const KhatsList = () => {
     const [config, setConfig] = useState();
-    const [khatMessages, setKhatMessages] = useState([]);
+    const [khatsList, setKhatsList] = useState([]);
 
-    const { khatId, companionId } = useParams();
+    const { companionId } = useParams();
 
     useEffect(() => {
         async function fetchConfig() {
@@ -16,7 +16,7 @@ const ViewReceivedKhat = () => {
             setConfig(config);
 
             const response = await fetch(
-                `${config.ApiUrl}/Khat/GetKhatContent`,
+                `${config.ApiUrl}/Khat/GetKhatByCompanionId`,
                 {
                     method: "POST",
                     headers: {
@@ -27,25 +27,32 @@ const ViewReceivedKhat = () => {
                     },
                     body: JSON.stringify({
                         companionId: companionId,
-                        KhatDate: new Date(khatId).toISOString(),
                     }),
                 }
             );
             const khatsList = await response.json();
-            setKhatMessages(khatsList.data.sort());
+            setKhatsList(khatsList.data.sort());
         }
         fetchConfig();
     }, []);
 
     return (
         <div>
-            <h1>Khat Messages</h1>
+            <h1>Khats</h1>
             <br />
             <div>
-                {khatMessages.length === 0 && <div>No Messages found</div>}
-                {khatMessages.map((message) => (
-                    <div key={message.khatId}>
-                        <div>{message.message} &mdash; {new Date(message.createdOn).toLocaleTimeString()}</div>
+                {khatsList.length === 0 && <div>No khats found</div>}
+                {khatsList.map((khatDate) => (
+                    <div key={khatDate}>
+                        <Link
+                            to={`/companions/${companionId}/khats/${khatDate.slice(
+                                0,
+                                10
+                            )}`}
+                        >
+                            {khatDate.slice(0, 10)}
+                        </Link>
+                        <hr />
                     </div>
                 ))}
             </div>
@@ -54,4 +61,4 @@ const ViewReceivedKhat = () => {
     );
 };
 
-export default withDeviceWidthCheck(ViewReceivedKhat);
+export default withDeviceWidthCheck(KhatsList);

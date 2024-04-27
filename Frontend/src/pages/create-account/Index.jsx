@@ -131,7 +131,7 @@ const CreateAccount = () => {
                         setTimeout(() => {
                             localStorage.setItem("token", json.token);
                             setCreatingAccountSuccess(false);
-                            navigator(NAVIGATION_ROUTES.DASHBOARD.path);
+                            navigator(NAVIGATION_ROUTES.HOME.path);
                         }, 2000);
                     } else {
                         setCreatingAccount(false);

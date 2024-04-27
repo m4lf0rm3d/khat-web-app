@@ -4,10 +4,13 @@ import AddCompanion from "../pages/add-companion/Index";
 import Dashboard from "../pages/dashboard/Index";
 import { DeviceNotSupported } from "../pages/device-not-supported/Index";
 import { ViewKhat } from "../pages/ViewKhat/Index";
-import Khats from "../pages/Khats/Index"
-import  CompanionsList from "../pages/CompanionsList/Index";
-import Homepage from "../pages/homepage/Index"
+import Khats from "../pages/Khats/Index";
+import CompanionsList from "../pages/CompanionsList/Index";
+import Homepage from "../pages/homepage/Index";
 import ViewReceivedKhat from "../pages/ViewReceivedKhat/Index";
+import { WriteKhat } from "../pages/write-khat/Index";
+import Companions from "../pages/companions/Index";
+import KhatsList from "../pages/khats-list/Index";
 
 export const NAVIGATION_ROUTES = {
     LOGIN: {
@@ -20,8 +23,18 @@ export const NAVIGATION_ROUTES = {
         component: Signup,
         title: "Khat | Create Account",
     },
+    HOME: {
+        path: "/",
+        component: WriteKhat,
+        title: "Khat | Write Khat",
+    },
     ADD_COMPANION: {
         path: "/add-companion",
+        component: AddCompanion,
+        title: "Khat | Add Companion",
+    },
+    VERIFY_COMPANION: {
+        path: "/add-companion/verify/:verificationCode",
         component: AddCompanion,
         title: "Khat | Add Companion",
     },
@@ -42,11 +55,16 @@ export const NAVIGATION_ROUTES = {
     },
     COMPANIONSLIST: {
         path: "/companions",
-        component: CompanionsList,
+        component: Companions,
         title: "Khat | Companions",
     },
+    KHAT_LIST: {
+        path: "/companions/:companionId/khats",
+        component: KhatsList,
+        title: "Khat | Khat List",
+    },
     KHATS: {
-        path: "/companions/:companionId/khats/",
+        path: "/companion2s/:companionId/khats/",
         component: Khats,
         title: "Khat | Khats",
     },

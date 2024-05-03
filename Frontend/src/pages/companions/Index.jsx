@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck";
 import { fetchAppSettings } from "../../utils/FetchAppSettings";
 import { Link } from "react-router-dom";
+import { NavBar } from "../../components/Navbar.jsx";
 
 const Companions = () => {
     const [config, setConfig] = useState();
@@ -45,6 +46,7 @@ const Companions = () => {
                     </div>
                 ))}
             </div>
+            <NavBar />
         </div>
     );
 };

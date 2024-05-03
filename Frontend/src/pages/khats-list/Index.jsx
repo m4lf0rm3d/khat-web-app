@@ -89,8 +89,7 @@ const KhatsList = () => {
                             )}`}
                         >
                             {khatDate.slice(0, 10)}
-                        </Link>
-                        <hr />
+                        </Link>                        
                     </div>
                 ))}
                 </div>

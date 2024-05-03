@@ -52,7 +52,7 @@ const Companions = () => {
                     <SearchOutline className="searchIconCompanions"/>
                 </div>
                 <div className="companionlistKhats">
-                    {companionList.length === 0 && <div>Add some companions first...</div>}
+                    {companionList.length === 0 && <div style={{fontSize: "20px"}}>Add some companions first...</div>}
                     {companionList.map((companion) => {    
                         if(companion.firstName.toLowerCase().startsWith(searchText.toLowerCase()))
                             return(

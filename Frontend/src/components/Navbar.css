@@ -1,0 +1,34 @@
+
+
+.navLinks {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    position: fixed;  /* Add position: fixed */
+    bottom: 0;         /* Position it at the bottom */
+}
+
+.nav-list {
+  list-style: none; /* Remove default list styling */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Make the list items horizontal */
+}
+
+.nav-list li {
+  margin-right: 1rem; /* Add some space between links */
+}
+
+.nav-list li.active {
+  font-weight: bold; /* Highlight the active link */
+}
+
+.nav-list li.active {
+    font-weight: bold;
+    background-color: #ddd;  /* Add a background color for active link */
+}
+
+
+

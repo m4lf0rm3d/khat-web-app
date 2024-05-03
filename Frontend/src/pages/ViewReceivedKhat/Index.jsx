@@ -3,6 +3,7 @@ import { withDeviceWidthCheck } from "../../utils/WithDeviceWidthCheck";
 import { fetchAppSettings } from "../../utils/FetchAppSettings";
 import { Link, useParams } from "react-router-dom";
 import { NavBar } from "../../components/Navbar";
+import "../write-khat/Index.css";
 
 const ViewReceivedKhat = () => {
     const [config, setConfig] = useState();
@@ -38,14 +39,17 @@ const ViewReceivedKhat = () => {
     }, []);
 
     return (
-        <div>
+        <div className="khatViewSection">
             <h1>Khat Messages</h1>
             <br />
-            <div>
+            <div className="khatEditor">
                 {khatMessages.length === 0 && <div>No Messages found</div>}
                 {khatMessages.map((message) => (
                     <div key={message.khatId}>
-                        <div>{message.message} &mdash; {new Date(message.createdOn).toLocaleTimeString()}</div>
+                        <p>{message.message} </p>
+                        <span>
+                            {new Date(message.createdOn).toLocaleTimeString()}
+                        </span>
                     </div>
                 ))}
             </div>

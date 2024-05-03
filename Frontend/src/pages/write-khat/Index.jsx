@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { NAVIGATION_ROUTES } from "../../data/NavigationRoutes.jsx";
 import { NavBar } from "../../components/Navbar.jsx";
 import Timer from "../../components/TImer.jsx";
+import "./Index.css";
 
 export const WriteKhat = () => {
     const [config, setConfig] = useState();
@@ -63,9 +64,14 @@ export const WriteKhat = () => {
             }),
         });
         setIsMessageAdded(!isMessageAdded);
+
+        // scroll to bottom
+        const khatEditor = document.getElementById("khatEditor");
+        khatEditor.scrollTop = khatEditor.scrollHeight;
     };
 
     useEffect(() => {
+        if (!config) return;
         let fetchSelfKhatMessages = async () => {
             let response = await fetch(`${config?.ApiUrl}/Khat/GetSelf`, {
                 method: "POST",
@@ -84,7 +90,7 @@ export const WriteKhat = () => {
     }, [isMessageAdded, selectedCompanion]);
 
     return (
-        <section>
+        <section className="khatViewSection">
             <h1>Write Khat</h1>
             {companionList.length == 0 ? (
                 <div>
@@ -111,15 +117,15 @@ export const WriteKhat = () => {
                         </select>
                     </div>
 
-                    <div className="khatEditor">
+                    <div className="khatEditor" id="khatEditor"  >
                         {selfKhatMessages.map((message) => (
                             <div key={Math.random()} className="khatMessage">
-                                <p>
-                                    {message.message} &mdash;{" "}
+                                <p>{message.message}</p>
+                                <span>
                                     {new Date(
                                         message.createdOn
                                     ).toLocaleTimeString()}
-                                </p>
+                                </span>
                             </div>
                         ))}
                     </div>

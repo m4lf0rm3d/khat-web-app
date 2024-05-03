@@ -1,0 +1,102 @@
+.khatViewSection {
+    padding: 1rem;
+    background: #ffa60036;
+    width: 100%;
+    /* height: 100vh; */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.khatViewSection h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.khatViewSection select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ffa600;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.khatEditor {
+    /* width: ; */
+    height: 60vh;
+    border-radius: 0.5rem;
+    padding: 4rem 2rem;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    overflow-y: auto;
+    background: url("https://thumbs.dreamstime.com/b/design-menu-background-27832409.jpg");
+    background-size: cover;
+}
+
+.khatEditor div {
+    margin: 1rem 0;
+    position: relative;
+    padding-bottom: 1rem;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    padding: 1rem;
+}
+
+.khatEditor p {
+    font-size: 1.1rem;
+    /* background: ; */
+    color: #5b3a1d;
+}
+
+.khatEditor span {
+    position: absolute;
+    right: 1rem;
+    bottom: .5rem;
+    font-size: 0.8rem;
+}
+
+.addKhatOptions input {
+    width: 80%;
+    margin: 1rem 0;
+    height: 3rem;
+    padding: 1rem;
+    outline: none;
+    border: 2px solid #5b3a1d;
+    border-radius: 0.7rem;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.addKhatOptions button {
+    width: 15%;
+    margin: 1rem 0;
+    margin-left: 1rem;
+    height: 3rem;
+    /* padding: 1rem; */
+    outline: none;
+    border: 2px solid #5b3a1d;
+    border-radius: 0.7rem;
+    font-weight: 500;
+    font-size: 1rem;
+    background: #5b3a1d;
+    color: white;
+    cursor: pointer;
+}
+
+.addKhatOptions button:active {
+    scale: 0.9;
+}
+
+.addKhatOptions i {
+    color: white;
+}

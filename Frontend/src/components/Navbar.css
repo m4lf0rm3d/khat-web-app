@@ -11,33 +11,34 @@
 }
 
 .nav-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   list-style: none; /* Remove default list styling */
   margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  display: flex; /* Make the list items horizontal */
+  padding: 0; /* Remove default padding */  
 }
 
-.nav-list li {
-  margin-right: 1rem; /* Add some space between links */
+/* .nav-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
 }
 
-.nav-list li Link{
+.nav-list li a {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-.nav-list li Link {
-  text-decoration: none;
-}
 
-.nav-list li.active {
-  font-weight: bold; /* Highlight the active link */
-}
-
-.nav-list li.active {
+.nav-list li.active {    
+  transform: scale(1.3); 
+    /* border-radius: 50px;
     font-weight: bold;
-    background-color: #ddd;  /* Add a background color for active link */
+    background-color: #ddd;  Add a background color for active link */
 }
 
 

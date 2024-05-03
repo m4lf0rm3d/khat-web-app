@@ -36,6 +36,10 @@
 }
 
 .viewKhatButtonKhatHistory {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
     text-align: left;
     text-decoration: none;
     padding: .8rem 1rem;
@@ -49,4 +53,8 @@
     width: 75vw;
     margin-top: 1rem;
     box-shadow: 5px 5px 10px #888888;
+}
+
+.khatIconKhatHistory {    
+    
 }

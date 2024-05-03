@@ -4,6 +4,7 @@ import { fetchAppSettings } from "../../utils/FetchAppSettings";
 import { Link, useParams } from "react-router-dom";
 import { NavBar } from "../../components/Navbar";
 import { Helmet } from "react-helmet";
+import { MailOutline } from 'react-ionicons'
 import "./Khats.css"
 
 const KhatsList = () => {
@@ -81,6 +82,13 @@ const KhatsList = () => {
                     <div 
                     key={khatDate}
                     className="viewKhatButtonKhatHistory">
+                        <MailOutline 
+                            className="khatIconKhatHistory"
+                            // color={'#00000'} 
+                            // title={}
+                            // height="250px"
+                            // width="250px"
+                            />
                         <Link
                             style={{textDecoration: "none"}}
                             to={`/companions/${companionId}/khats/${khatDate.slice(

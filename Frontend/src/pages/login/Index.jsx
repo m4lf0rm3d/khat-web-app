@@ -96,7 +96,9 @@ const Login = () => {
                         setTimeout(() => {
                             localStorage.setItem("token", json.token);
                             setLoginAccountSuccess(false);
-                            navigator(NAVIGATION_ROUTES.DASHBOARD.path);
+                            // Update redirection to homepage instead of dashboard
+                            navigator(NAVIGATION_ROUTES.HOME.path); 
+                            // navigator(NAVIGATION_ROUTES.DASHBOARD.path);
                         }, 2000);
                     } else {
                         setLoginAccount(false);
@@ -201,7 +203,9 @@ const Login = () => {
                         message={"Redirecting ..."}
                         messageHeader={"Success!"}
                         icon={"fa-duotone fa-check-circle loginSuccessIcon"}
+                    
                     />
+                    
                 )}
             </div>
         </section>

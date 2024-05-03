@@ -1,0 +1,252 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Add padding for space between content and edges */
+  min-height: 50vh; /* Ensure the container expands to fit content */
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  flex: 1
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+.buttoncontainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+  
+  .inputhome {
+    display: flex;
+    resize: none;
+    overflow-y; auto;
+    flex-direction: column;
+    justify-content: start;
+    width: 290px;
+    height: 290px; /* Adjust max-height as needed */
+    text-align: left;
+    gap: 2px;
+    border-radius: 10px;
+    border: 3px solid #56300E;
+    white-space: pre-wrap; /* Wrap text to new line when needed */
+  }
+  .khatsMain{
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+    color: #5b3a1d;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+
+}
+  .button1 {
+  
+    width: 152px;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 11px;
+    background: #5B3A1D;
+    color : #ffffff;
+
+  }
+
+  .button2 {
+    
+    width: 152px;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 11px;
+    background: #5B3A1D;
+    color : #ffffff;
+
+
+  }
+  .button:hover {
+    background-color: #a96001;
+  }
+  
+  .text-wrapper {
+    color: #5b3a1d;
+    font-family: "Poppins-Bold", Helvetica;
+    display: flex;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 52px;
+    width: 350px;
+
+  }
+
+.text-wrapper-1{
+    color: #000000;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 700;
+    height: 47px;
+    left: 34px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 52px;
+    width: 350px;
+  }
+
+
+
+.text-wrapper-6 {
+    color: #000000;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 25px;
+    font-weight: 500;
+    padding-top: 10px;
+
+  }
+
+.navigation
+{      
+      position: fixed;
+      bottom: 0;
+      width: 400px;
+      height: 70px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+}
+.navigation ul{
+  display: flex;
+  width: 350px;
+}
+.navigation ul li{
+  position: relative;
+  list-style: none;
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+}
+.navigation ul li a{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+.navigation ul li a .icon{
+  position: relative;
+  display: block;
+  line-height: 75px;
+  font-size: 1.5em;
+  text-align: center;
+  transition: 0.5s;
+  color: #5b3a1d;
+}
+
+.navigation ul li.active a .icon
+{
+  transform: translateY(-32px);
+}
+
+.navigation ul li a .text
+{
+  position: absolute;
+  color: #5b3a1d;
+  font-weight: 0.75em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.navigation ul li.active a .text
+{
+  opacity: 1;
+  transform: translateY(10px);
+}
+.indicator
+{
+  position: absolute;
+  top: -50%;
+  width: 70px;
+  height: 70px;
+  background: #f6b764;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  transition: 0.5s;
+}
+.indicator::before
+{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: -1px - 10px 0 0 #fff;
+}
+
+.indicator::after
+{
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-left-radius: 20px;
+  box-shadow: -1px - 10px 0 0 #fff;
+}
+
+.navigation ul li:nth-child(1).active ~ .indicator
+{
+  transform: translateX(calc(70px * 0))
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator
+{
+  transform: translateX(calc(70px * 1))
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator
+{
+  transform: translateX(calc(70px * 2))
+}
+
+.text1
+{
+  position: absolute;
+  color: #5b3a1d;
+  font-size: 18px;
+  font-weight: 0.75em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(10px);
+}

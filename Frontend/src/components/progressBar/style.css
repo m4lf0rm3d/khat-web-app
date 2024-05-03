@@ -1,0 +1,64 @@
+.progress-bar {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .progress-bar .frame {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 3px;
+    position: relative;
+  }
+  
+  .progress-bar .frame-2 {
+    background-color: var(--neutral-colordark-white);
+    border-radius: 17px;
+    flex: 1;
+    flex-grow: 1;
+    position: relative;
+    width: 214px;
+  }
+  
+  .progress-bar .frame-3 {
+    background-color: var(--primary-colorcolor-01);
+    border-radius: 17px;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .progress-bar .frame-4 {
+    background-color: var(--primary-colorcolor-01);
+    border-radius: 17px;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  
+  .progress-bar .one-hundred {
+    width: 214px;
+  }
+  
+  .progress-bar .fifty {
+    width: 109px;
+  }
+  
+  .progress-bar .twenty-five {
+    width: 58px;
+  }
+  
+  .progress-bar .zero {
+    width: 58px;
+  }
+  
+  .progress-bar .seventy-five {
+    width: 168px;
+  }
+  

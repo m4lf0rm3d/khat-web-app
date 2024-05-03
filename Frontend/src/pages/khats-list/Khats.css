@@ -1,0 +1,52 @@
+.khatHistory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.khatHistoryMain{
+    padding: 0px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.khatHistoryMain h1 {
+    flex: 1;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.khatDatesKhatHistory {
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
+.companionImageKhatHistory {
+    flex: 2;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+}
+
+.viewKhatButtonKhatHistory {
+    text-align: left;
+    text-decoration: none;
+    padding: .8rem 1rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+    background-color: white;
+    color: var(--main-bg-color);
+    cursor: pointer;
+    width: 75vw;
+    margin-top: 1rem;
+    box-shadow: 5px 5px 10px #888888;
+}

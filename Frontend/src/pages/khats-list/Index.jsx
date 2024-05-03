@@ -76,6 +76,7 @@ const KhatsList = () => {
                 } */}
                 
                 <div className="khatDatesKhatHistory">
+                {khatsList.length == 0 && <div> No khats yet :( </div>}
                 {khatsList.map((khatDate) => (
                     <div 
                     key={khatDate}

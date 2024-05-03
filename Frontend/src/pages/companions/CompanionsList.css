@@ -56,8 +56,9 @@
 }
 
 .inputBoxKhats{
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: row;
+    align-items: center; */
     margin-bottom: .5rem;
     /* background: gold; */
 }
@@ -69,7 +70,7 @@
 }
 
 .inputBoxKhats input, .inputBoxKhats select{
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem 0.5rem 2rem;
     font-size: 1rem;
     border: .1rem solid var(--text-lighter);
     border-radius: .5rem;
@@ -100,3 +101,9 @@
 
   }
   
+  .searchIconCompanions {
+    position: absolute;
+    top: 84px;
+    transform: translateY(-50%);
+    left: 37px; /* Adjust the left position according to your preference */
+  }

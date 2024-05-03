@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet"
 import './CompanionsList.css'
 import { NavBar } from "../../components/Navbar.jsx";
+import { SearchOutline } from "react-ionicons"
 
 const Companions = () => {
     const [config, setConfig] = useState();
@@ -34,34 +35,24 @@ const Companions = () => {
     }, []);
 
     return (
-        // <div>
-        //     <h1>Companions</h1>
-        //     <br />
-        //     <div>
-        //         {companionList.map((companion) => (
-        //             <div key={companion.userId}>
-        //                 <Link
-        //                     to={`/companions/${companion.companionId}/khats/`}
-        //                 >
-        //                     {companion.firstName} {companion.lastName}
-        //                 </Link>
-        //                 <hr />
-        //             </div>
-        //         ))}
-        //     </div>
-        // </div>
         <section className="Khats">
             <Helmet>
                 <title>Companions</title>
             </Helmet>
             <div className="khatsMain">
                 <h1>Companions</h1>
-                <div className="inputBoxKhats">
-                    <input className="searchBarKhats" type="text" onInput={(e) => {
+                <div className="inputBoxKhats">                    
+                    <input 
+                    className="searchBarKhats" 
+                    type="text" 
+                    placeholder="Search..."
+                    onInput={(e) => {
                         setSearchText(e.target.value);
                     }}/>
+                    <SearchOutline className="searchIconCompanions"/>
                 </div>
                 <div className="companionlistKhats">
+                    {companionList.length === 0 && <div>Add some companions first...</div>}
                     {companionList.map((companion) => {    
                         if(companion.firstName.toLowerCase().startsWith(searchText.toLowerCase()))
                             return(
@@ -83,6 +74,10 @@ const Companions = () => {
                                                 src={companion.imgUrl} 
                                                 alt="No image" />                                                                        
                                         } */}
+                                        <img                                                
+                                                className="companionImageKhats" 
+                                                src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
+                                                alt="No image" />   
                                         {companion.firstName} {companion.lastName}
                                 </Link>
                             );

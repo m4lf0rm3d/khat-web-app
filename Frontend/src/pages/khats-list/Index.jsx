@@ -74,12 +74,14 @@ const KhatsList = () => {
                     src={imgUrl} 
                     alt="No image" />                                                                        
                 } */}
+                
                 <div className="khatDatesKhatHistory">
                 {khatsList.map((khatDate) => (
                     <div 
                     key={khatDate}
                     className="viewKhatButtonKhatHistory">
                         <Link
+                            style={{textDecoration: "none"}}
                             to={`/companions/${companionId}/khats/${khatDate.slice(
                                 0,
                                 10
